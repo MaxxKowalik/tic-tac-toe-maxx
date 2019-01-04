@@ -1,1 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
+// store styles here
+//
+$background-color: #919ade;
+$font-color: #dfdfdf;
+$white: #fff;
+$grey: rgb(128, 128, 128);
+$teal: rgb(0, 156, 161);
+$black: #000;
+
+body {
+  background-color: $background-color;
+}
+// nav-bar {
+//   border: 1px $black;
+// }
+.container {
+  // margin: 200px auto;
+  border: 1px solid $white;
+  height: 400px;
+  margin: auto;
+  padding: auto;
+  width: 400px;
+}
+
+.box {
+  // align-items: center;
+  // border: 1px solid $white;
+  // color: $font-color;
+  // display: flex;
+  // // height: 200px;
+  // // width: 50px;
+  // justify-content: center;
+  // // padding: 100px;
+  // // margin: 100px;
+}
+
+.grey {
+  background-color: $grey;
+}
+
+.teal {
+  background-color: $teal;
+}

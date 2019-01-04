@@ -1,5 +1,6 @@
 'use strict'
-
+// Developers should set `apiUrls.production` and `apiUrls.development` here
+// use this as basis for api urls
 let apiUrl
 const apiUrls = {
   production: '<replace-with-heroku-url>',
