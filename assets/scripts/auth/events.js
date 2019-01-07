@@ -20,7 +20,6 @@ const onSignIn = event => {
   console.log('it works!')
   const signInForm = event.target
   const formData = getFormFields(signInForm)
-  console.log('event.target is', event.target)
 
   api.signIn(formData)
     .then(ui.onSignInSuccess)
@@ -38,8 +37,26 @@ const onSignOut = event => {
 
   $('form').trigger('reset')
 }
+const onChangePassword = event => {
+  event.preventDefault()
+  console.log('it works!')
+  const formData = getFormFields(event.target)
+
+  api.changePassword(formData)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
+
+  $('form').trigger('reset')
+}
+const playerOne = event => {
+  event.preventDefault()
+  console.log('Player One Clicked')
+  $(event.target).text('X')
+}
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onChangePassword,
+  playerOne
 }

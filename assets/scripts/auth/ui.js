@@ -26,12 +26,31 @@ const onSignOutSuccess = (responseData) => {
 const onSignOutFailure = (responseData) => {
   $('#user-message').text('Sign Out Failure')
 }
-
+const onChangePasswordSuccess = (responseData) => {
+  $('#user-message').text('Changed Password')
+  console.log('Store is:', store)
+}
+const onChangePasswordFailure = (responseData) => {
+  $('#user-message').text('Password Fail')
+  console.log('Store is:', store)
+}
+// const onPlayerOneSuccess = (responseData) => {
+//   $('#user-message').text('Player Turn Success!')
+//   console.log('Store is:', store)
+// }
+// const onPlayerOneFailure = (responseData) => {
+//   $('#user-message').text('Player One Failed!')
+//   console.log('Store is:', store)
+// }
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure
+  // onPlayerOneSuccess,
+  // onPlayerOneFailure
 }

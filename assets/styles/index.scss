@@ -1,11 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 // store styles here
 //
-$background-color: #919ade;
-$font-color: #dfdfdf;
+$background-color: #ccffff;
+$font-color: #0000cc;
 $white: #fff;
-$grey: rgb(128, 128, 128);
-$teal: rgb(0, 156, 161);
 $black: #000;
 
 body {
@@ -14,7 +12,7 @@ body {
 
 .container {
   // margin: 200px auto;
-  border: 1px solid $white;
+  border: 1px solid $black;
   height: 400px;
   margin: auto;
   padding: auto;
@@ -23,7 +21,7 @@ body {
 
 .box {
   align-items: center;
-  border: 1px solid $white;
+  border: 2px solid $black;
   color: $font-color;
   cursor: pointer;
   display: flex;
@@ -35,8 +33,8 @@ body {
   text-align: center;
 }
 
-.grey {
-  background-color: $grey;
+.white {
+  background-color: $white;
 }
 
 .teal {
