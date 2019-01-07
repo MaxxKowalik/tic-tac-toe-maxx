@@ -12,32 +12,60 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tacs on meh Toes</h1>
 
+      <h3>Sign Up</h3>
+      <form id='sign-up'>
+        <input type="text" name="credentials[username]" placeholder="Username here">
+        <input type="text" name="credentials[email]" placeholder="Email goes here">
+        <input type="text" name="credentials[password]" placeholder="Password goes here">
+        <input type="text" name="credentials[password_confirmation]" placeholder="Confirm password here">
+   <!-- <!<input type="submit" value="Submit" -->
+        <button>Submit</button>
+      </form>
+
+      <h3>Sign In</h3>
+    <form id='sign-in'>
+      <input type="text" name="credentials[email]" placeholder="Email goes here">
+      <input type="text" name="credentials[password]" placeholder="Password goes here">
+      <button>Sign In</button>
+    </form>
+
+      <h3>Sign Out</h3>
+        <button id='sign-out'>Sign Out</button>
 
       <div class= "container">
-        <div class="row article">
+            <div class="row article">
 
-      <div class="col-4 box teal">x</div>
-      <div class="col-4 box grey">o</div>
-      <div class="col-4 box teal">x</div>
+            <div class="col-4 box teal" id="0">0</div>
+            <div class="col-4 box grey" id="1">1</div>
+            <div class="col-4 box teal" id="2">2</div>
 
-    </div>
-    <div class="row article">
+          </div>
+            <div class="row article">
 
-      <div class="col-4 box grey">o</div>
-      <div class="col-4 box teal">x</div>
-      <div class="col-4 box grey">o</div>
+            <div class="col-4 box grey" id="3">3</div>
+            <div class="col-4 box teal" id="4">4</div>
+            <div class="col-4 box grey" id="5">5</div>
 
-    </div>
-    <div class="row article">
+          </div>
+            <div class="row article">
 
-      <div class="col-4 box teal">x</div>
-      <div class="col-4 box grey">0</div>
-      <div class="col-4 box teal">x</div>
+            <div class="col-4 box teal" id="6">6</div>
+            <div class="col-4 box grey" id="7">7</div>
+            <div class="col-4 box teal" id="8">8</div>
 
-    </div>
+          </div>
 
       </div>
+
+        <div class="endgame">
+          <div class="text"></div>
+        </div>
+
+        <div class="start-game-holder">
+            <button onClick="startGame" id='replay-button'>New Game</button>
+      </div>
+
     </body>
 </html>
