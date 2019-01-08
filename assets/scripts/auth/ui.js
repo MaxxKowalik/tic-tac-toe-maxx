@@ -1,6 +1,6 @@
 'use strict'
 
-const store = require('../templates/store')
+const store = require('../store')
 
 const onSignUpSuccess = (responseData) => {
   console.log(responseData)

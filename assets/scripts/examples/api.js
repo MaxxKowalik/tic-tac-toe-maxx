@@ -1,6 +1,6 @@
 'use strict'
-const config = require('../templates/config')
-const store = require('../templates/store')
+const config = require('../config')
+const store = require('../store')
 
 const createExample = (formData) => {
   return $.ajax({

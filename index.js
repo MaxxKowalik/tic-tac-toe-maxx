@@ -10,7 +10,7 @@ require('babel-polyfill')
 
 // load manifests
 // scripts
-require('./assets/scripts/examples/app.js')
+require('./assets/scripts/app.js')
 
 // styles
 require('./assets/styles/index.scss')
