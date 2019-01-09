@@ -49,41 +49,48 @@ const onChangePassword = event => {
 
   $('form').trigger('reset')
 }
-// This is the function for the New Game button in my game
-// const btnReset = document.getElementById('#replay')
-// btnReset.addEventListener('click', function () {
-//   startGame()
-// })
-
-// This is the event used for creating an x in my game board
-const playerOne = event => {
+// This is the event used for creating an x and o in my game board
+// playerFunction defines the function that holsters my if statement for switching
+// - between x and o. It also holds the code that stores X or O in my game gameBoard
+// - array.
+const playerFunction = event => {
   event.preventDefault()
-  console.log('Player One Clicked')
-  // this line describes that an x should appear in the single target
-  // being clicked.
-  $(event.target).text(store.player)
-  console.log('Player is', store.player)
-  // if store.player is x
-  if (store.player === 'X') {
-    console.log('Youve picked', store.player)
-    // then change store.player to O
-    store.player = 'O'
+  // this code stores x or o as an index of my gameBoard Array
+  const dataId = $(event.target).data('id')
+  // This bit of code will create the game board
+  const gameBoard = ['', '', '', '', '', '', '', '', '']
+  // Makes it so player cannot choose spot thats already been chosen.
+  // if a box has been clicked, it can not be clicked again
+  // gameBoard[dataId] is the X or O being stored in the gameBoard Array
+  if (gameBoard[dataId] === 'X' || gameBoard[dataId] === 'O') {
   } else {
-    console.log('Youve picked', store.player)
-    // if else, store.player is O change back to x
-    store.player = 'X'
+    gameBoard[dataId] = store.player
+    console.log(gameBoard)
+    // this line describes that an x should appear in the single target (box)
+    // being clicked.
+    $(event.target).text(store.player)
+    // if store.player is x
+    if (store.player === 'X') {
+      // then change store.player to O
+      store.player = 'O'
+    } else {
+      // if else, store.player is O change back to x
+      store.player = 'X'
+    }
+  }
+  if (gameBoard[0] === 'X') {
+    console.log('Its an X')
   }
 }
+// this bit of code will determine the winner of the game
 
-// const lastMove = 'X'
-// if (lastMove === 'X') {
-//   console.log('O')
-// }
+// if you're selections = one of the arrays above, you win.
+// else if you're selection dont = one of the arrays above, then null.
 
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
-  playerOne
+  playerFunction
 }
