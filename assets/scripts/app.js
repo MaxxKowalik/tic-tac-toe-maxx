@@ -4,6 +4,7 @@ const authEvents = require('./auth/events.js')
 const exampleEvents = require('./examples/events.js')
 const store = require('./store')
 $(() => {
+  store.gameBoard = ['', '', '', '', '', '', '', '', '']
   store.player = 'X' // sets the default value
   // Auth events
   $('#sign-up').on('submit', authEvents.onSignUp)

@@ -58,14 +58,13 @@ const playerFunction = event => {
   // this code stores x or o as an index of my gameBoard Array
   const dataId = $(event.target).data('id')
   // This bit of code will create the game board
-  const gameBoard = ['', '', '', '', '', '', '', '', '']
   // Makes it so player cannot choose spot thats already been chosen.
   // if a box has been clicked, it can not be clicked again
   // gameBoard[dataId] is the X or O being stored in the gameBoard Array
-  if (gameBoard[dataId] === 'X' || gameBoard[dataId] === 'O') {
+  if (store.gameBoard[dataId] === 'X' || store.gameBoard[dataId] === 'O') {
   } else {
-    gameBoard[dataId] = store.player
-    console.log(gameBoard)
+    store.gameBoard[dataId] = store.player
+    console.log(store.gameBoard)
     // this line describes that an x should appear in the single target (box)
     // being clicked.
     $(event.target).text(store.player)
@@ -78,10 +77,32 @@ const playerFunction = event => {
       store.player = 'X'
     }
   }
-  if (gameBoard[0] === 'X') {
-    console.log('Its an X')
+  console.log('This is th current board', store.gameBoard)
+  if ((store.gameBoard[0] === 'X' && store.gameBoard[1] === 'X' && store.gameBoard[2] === 'X') ||
+  (store.gameBoard[3] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[5] === 'X') ||
+(store.gameBoard[6] === 'X' && store.gameBoard[7] === 'X' && store.gameBoard[8] === 'X') ||
+(store.gameBoard[0] === 'X' && store.gameBoard[3] === 'X' && store.gameBoard[6] === 'X') ||
+(store.gameBoard[1] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[7] === 'X') ||
+(store.gameBoard[2] === 'X' && store.gameBoard[5] === 'X' && store.gameBoard[8] === 'X') ||
+(store.gameBoard[0] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[8] === 'X') ||
+(store.gameBoard[2] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[6] === 'X')) {
+    console.log('Player X Wins')
+  } else if ((store.gameBoard[0] === 'O' && store.gameBoard[1] === 'O' && store.gameBoard[2] === 'O') ||
+  (store.gameBoard[3] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[5] === 'O') ||
+(store.gameBoard[6] === 'O' && store.gameBoard[7] === 'O' && store.gameBoard[8] === 'O') ||
+(store.gameBoard[0] === 'O' && store.gameBoard[3] === 'O' && store.gameBoard[6] === 'O') ||
+(store.gameBoard[1] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[7] === 'O') ||
+(store.gameBoard[2] === 'O' && store.gameBoard[5] === 'O' && store.gameBoard[8] === 'O') ||
+(store.gameBoard[0] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[8] === 'O') ||
+(store.gameBoard[2] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[6] === 'O')) {
+    console.log('Player O Wins')
+  } else {
+    console.log('Draw')
   }
 }
+
+// && gameBoard[2] === 'X' && gameBoard[3] === 'X'
+
 // this bit of code will determine the winner of the game
 
 // if you're selections = one of the arrays above, you win.
