@@ -1,5 +1,5 @@
 'use strict'
-
+// this connects with the html and the sign in forms
 const authEvents = require('./auth/events.js')
 const exampleEvents = require('./examples/events.js')
 const store = require('./store')

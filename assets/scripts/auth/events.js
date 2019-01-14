@@ -49,20 +49,44 @@ const onChangePassword = event => {
 
   $('form').trigger('reset')
 }
+// const onPlayerXwins = event => {
+//   event.preventDefault()
+//   console.log('it works!')
+//   const onXwinsForm = event.target
+//   const formData = getFormFields(onXwinsForm)
+//
+//   api.signIn(formData)
+//     .then(ui.onXwins)
+//     .catch(ui.onXwins)
+//
+//   $('form').trigger('reset')
+// }
+// const onPlayOwins = event => {
+//   event.preventDefault()
+//   console.log('it works!')
+//   const onOwinsForm = event.target
+//   const formData = getFormFields(onOwinsForm)
+//
+//   api.signIn(formData)
+//     .then(ui.onOwins)
+//     .catch(ui.onOwins)
+//
+//   $('form').trigger('reset')
+// }
 // This is the event used for creating an x and o in my game board
 // playerFunction defines the function that holsters my if statement for switching
 // - between x and o. It also holds the code that stores X or O in my game gameBoard
 // - array.
 const playerFunction = event => {
   event.preventDefault()
+  $('form').trigger('reset')
   // this code stores x or o as an index of my gameBoard Array
   const dataId = $(event.target).data('id')
   // This bit of code will create the game board
   // Makes it so player cannot choose spot thats already been chosen.
   // if a box has been clicked, it can not be clicked again
   // gameBoard[dataId] is the X or O being stored in the gameBoard Array
-  if (store.gameBoard[dataId] === 'X' || store.gameBoard[dataId] === 'O') {
-  } else {
+  if (store.gameBoard[dataId] === 'X' || store.gameBoard[dataId] === 'O') {} else {
     store.gameBoard[dataId] = store.player
     console.log(store.gameBoard)
     // this line describes that an x should appear in the single target (box)
@@ -77,31 +101,37 @@ const playerFunction = event => {
       store.player = 'X'
     }
   }
-  console.log('This is th current board', store.gameBoard)
+  // console.log('This is th current board', store.gameBoard)
   if ((store.gameBoard[0] === 'X' && store.gameBoard[1] === 'X' && store.gameBoard[2] === 'X') ||
-  (store.gameBoard[3] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[5] === 'X') ||
-(store.gameBoard[6] === 'X' && store.gameBoard[7] === 'X' && store.gameBoard[8] === 'X') ||
-(store.gameBoard[0] === 'X' && store.gameBoard[3] === 'X' && store.gameBoard[6] === 'X') ||
-(store.gameBoard[1] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[7] === 'X') ||
-(store.gameBoard[2] === 'X' && store.gameBoard[5] === 'X' && store.gameBoard[8] === 'X') ||
-(store.gameBoard[0] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[8] === 'X') ||
-(store.gameBoard[2] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[6] === 'X')) {
-    console.log('Player X Wins')
+    (store.gameBoard[3] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[5] === 'X') ||
+    (store.gameBoard[6] === 'X' && store.gameBoard[7] === 'X' && store.gameBoard[8] === 'X') ||
+    (store.gameBoard[0] === 'X' && store.gameBoard[3] === 'X' && store.gameBoard[6] === 'X') ||
+    (store.gameBoard[1] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[7] === 'X') ||
+    (store.gameBoard[2] === 'X' && store.gameBoard[5] === 'X' && store.gameBoard[8] === 'X') ||
+    (store.gameBoard[0] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[8] === 'X') ||
+    (store.gameBoard[2] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[6] === 'X')) {
+    $('#player-win-container').text('Player X Wins!')
   } else if ((store.gameBoard[0] === 'O' && store.gameBoard[1] === 'O' && store.gameBoard[2] === 'O') ||
-  (store.gameBoard[3] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[5] === 'O') ||
-(store.gameBoard[6] === 'O' && store.gameBoard[7] === 'O' && store.gameBoard[8] === 'O') ||
-(store.gameBoard[0] === 'O' && store.gameBoard[3] === 'O' && store.gameBoard[6] === 'O') ||
-(store.gameBoard[1] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[7] === 'O') ||
-(store.gameBoard[2] === 'O' && store.gameBoard[5] === 'O' && store.gameBoard[8] === 'O') ||
-(store.gameBoard[0] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[8] === 'O') ||
-(store.gameBoard[2] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[6] === 'O')) {
-    console.log('Player O Wins')
-  } else {
+    (store.gameBoard[3] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[5] === 'O') ||
+    (store.gameBoard[6] === 'O' && store.gameBoard[7] === 'O' && store.gameBoard[8] === 'O') ||
+    (store.gameBoard[0] === 'O' && store.gameBoard[3] === 'O' && store.gameBoard[6] === 'O') ||
+    (store.gameBoard[1] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[7] === 'O') ||
+    (store.gameBoard[2] === 'O' && store.gameBoard[5] === 'O' && store.gameBoard[8] === 'O') ||
+    (store.gameBoard[0] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[8] === 'O') ||
+    (store.gameBoard[2] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[6] === 'O')) {
+    $('#player-win-container').text('Player O Wins!')
+  } else if ((store.gameBoard[0] === 'O' && store.gameBoard[1] === 'X' && store.gameBoard[2] === 'O') ||
+    (store.gameBoard[3] === 'X' && store.gameBoard[4] === 'O' && store.gameBoard[5] === 'O') ||
+    (store.gameBoard[6] === 'O' && store.gameBoard[7] === 'X' && store.gameBoard[8] === 'O') ||
+    (store.gameBoard[0] === 'O' && store.gameBoard[3] === 'O' && store.gameBoard[6] === 'X') ||
+    (store.gameBoard[1] === 'X' && store.gameBoard[4] === 'X' && store.gameBoard[7] === 'O') ||
+    (store.gameBoard[2] === 'O' && store.gameBoard[5] === 'X' && store.gameBoard[8] === 'X') ||
+    (store.gameBoard[0] === 'X' && store.gameBoard[4] === 'O' && store.gameBoard[8] === 'X') ||
+    (store.gameBoard[2] === 'O' && store.gameBoard[4] === 'O' && store.gameBoard[6] === 'O')) {
+    $('#player-win-container').text('Its A Draw!')
     console.log('Draw')
   }
 }
-
-// && gameBoard[2] === 'X' && gameBoard[3] === 'X'
 
 // this bit of code will determine the winner of the game
 

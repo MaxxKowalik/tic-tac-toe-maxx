@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Maxx's Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -13,7 +13,8 @@
     </head>
     <body>
       <h1>Play Tic Tac Toe!</h1>
-      <h3 id='user-message'></h3>
+      <h3 id='log-user-message'></h3>
+
 
       <h3>Sign Up</h3>
       <form id='sign-up'>
@@ -41,6 +42,10 @@
       <h3>Sign Out</h3>
         <button id='sign-out'>Sign Out</button>
 
+<div class="player-wins">
+  <h3 id='player-win-container'></h3>
+</div>
+
 
       <div class="container">
           <div class="row article">
@@ -55,10 +60,6 @@
             <div class="col-4 box white" data-id="8"></div>
           </div>
       </div>
-
-        <div class="winner">
-          <div class="text">isbdrgbwoer</div>
-        </div>
 
         <div class="start-game-holder">
             <button onClick="startGame()" id='replay'>New Game</button>
