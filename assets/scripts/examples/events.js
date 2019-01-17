@@ -14,7 +14,6 @@ const onCreateExample = (event) => {
 
 const addHandlers = () => {
   $('#create-example').on('submit', onCreateExample)
-  console.log('inside of add handlers')
 }
 
 module.exports = {

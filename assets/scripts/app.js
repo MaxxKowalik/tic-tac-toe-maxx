@@ -12,10 +12,15 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
 
+  // this will help end my game after completion by connecting to the api
+  $('#game-over').on('submit', authEvents.onGameOver)
+
   // Game Events
   // links to JQuery code and playerOne function being described in events.js
   // changing .on to .one will make the box only clickable once
   $('.box').on('click', authEvents.playerFunction)
-  console.log('authEvents is', authEvents)
+  $('.resetButton').on('click', authEvents.clearBoard)
+  // $(event.target).clear('.resetButton')
+
   exampleEvents.addHandlers()
 })

@@ -35,10 +35,20 @@ const signOut = () => {
     }
   })
 }
-
+const gameOver = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/game-over',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  gameOver
 }

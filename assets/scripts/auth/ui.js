@@ -28,10 +28,19 @@ const onSignOutFailure = (responseData) => {
 }
 const onChangePasswordSuccess = (responseData) => {
   $('#log-user-message').text('Hoorah! Password Changed!')
-  console.log('Store is:', store)
 }
 const onChangePasswordFailure = (responseData) => {
   $('#log-user-message').text('Password failed. No tic tac for you!')
+}
+
+// not sure if I need to keep onGameOverFailure. Come back to this.
+// also need to come up with a better user message (if any at all)
+const onGameOverSuccess = (responseData) => {
+  $('#player-win-container').text('Game Over Success')
+  console.log('Store is:', store)
+}
+const onGameOverFailure = (responseData) => {
+  $('#player-win-container').text('Game Over Failure')
   console.log('Store is:', store)
 }
 module.exports = {
@@ -42,5 +51,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onGameOverSuccess,
+  onGameOverFailure
 }
