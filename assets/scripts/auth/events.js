@@ -49,10 +49,9 @@ const onChangePassword = event => {
 
   $('form').trigger('reset')
 }
-// This is the event used for creating an x and o in my game board
 // playerFunction defines the function that holsters my if statement for switching
-// - between x and o. It also holds the code that stores X or O in my game gameBoard
-// - array.
+// - between x and o. It also holds the code that stores X or O in my game gameBoard array
+// playerFunctio also holds the if statement for determining which player has won or if it's a draw
 const playerFunction = event => {
   event.preventDefault()
   $('form').trigger('reset')
@@ -142,12 +141,21 @@ const playerFunction = event => {
       store.gameBoard[6] === 'X' && store.gameBoard[7] === 'O' && store.gameBoard[8] === 'O') ||
     (store.gameBoard[0] === 'O' && store.gameBoard[1] === 'X' && store.gameBoard[2] === 'O' &&
       store.gameBoard[3] === 'X' && store.gameBoard[4] === 'O' && store.gameBoard[5] === 'X' &&
-      store.gameBoard[6] === 'X' && store.gameBoard[7] === 'O' && store.gameBoard[8] === 'X')) {
+      store.gameBoard[6] === 'X' && store.gameBoard[7] === 'O' && store.gameBoard[8] === 'X') ||
+    (store.gameBoard[0] === 'O' && store.gameBoard[1] === 'X' && store.gameBoard[2] === 'O' &&
+      store.gameBoard[3] === 'O' && store.gameBoard[4] === 'X' && store.gameBoard[5] === 'X' &&
+      store.gameBoard[6] === 'X' && store.gameBoard[7] === 'O' && store.gameBoard[8] === 'X') ||
+      (store.gameBoard[0] === 'O' && store.gameBoard[1] === 'X' && store.gameBoard[2] === 'X' &&
+        store.gameBoard[3] === 'X' && store.gameBoard[4] === 'O' && store.gameBoard[5] === 'O' &&
+        store.gameBoard[6] === 'O' && store.gameBoard[7] === 'X' && store.gameBoard[8] === 'X')) {
     $('#player-win-container').text('Its a Draw!')
   }
 }
 // clearBoard function will clear my gameBoard by replacing its values with open strings
 const clearBoard = event => {
+  // console.log(api.gameIndex)
+  // console.log('Store is:', store)
+  // console.log(event)
   $('.box').text('')
   store.player = 'X'
   store.gameBoard = store.gameBoard.map(spot => '')

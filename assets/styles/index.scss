@@ -2,12 +2,39 @@
 // store styles here
 //
 $background-color: #ccffff;
+$background-color-2: #99ff99;
 $font-color: #0000cc;
 $white: #fff;
 $black: #000;
 
 body {
   background-color: $background-color;
+}
+
+h3 {
+  font-size: 20px;
+}
+.sign-up-container {
+  background-color: $background-color-2;
+  border: 3px solid $black;
+  display: inline-block;
+  font-size: 10px;
+  height: 120px;
+  justify-content: flex-start;
+  margin: auto;
+  padding: auto;
+  text-align: center;
+}
+
+.sign-out-container {
+  background-color: $background-color-2;
+  border: 3px solid $black;
+  display: inline-block;
+  font-size: 10px;
+  height: 120px;
+  margin: 20px;
+  padding: auto;
+  text-align: center;
 }
 
 .container {

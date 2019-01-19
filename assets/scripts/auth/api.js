@@ -35,9 +35,39 @@ const signOut = () => {
     }
   })
 }
-const gameOver = (formData) => {
+const gameIndex = (formData) => {
   return $.ajax({
-    url: config.apiUrl + '/game-over',
+    url: config.apiUrl + `/games[?over=]`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+const gameCreate = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+const gameShow = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + `/games`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+const gameUpdate = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + `/games`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -45,10 +75,25 @@ const gameOver = (formData) => {
     data: formData
   })
 }
+const gameUpdateStates = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  gameOver
+  gameIndex,
+  gameCreate,
+  gameShow,
+  gameUpdate,
+  gameUpdateStates
 }
