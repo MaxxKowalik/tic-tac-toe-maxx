@@ -6,7 +6,6 @@ const store = require('../store')
 
 const onSignUp = event => {
   event.preventDefault()
-  console.log('it works!')
   const signUpForm = event.target
   const formData = getFormFields(signUpForm)
 
@@ -18,7 +17,6 @@ const onSignUp = event => {
 }
 const onSignIn = event => {
   event.preventDefault()
-  console.log('it works!')
   const signInForm = event.target
   const formData = getFormFields(signInForm)
 
@@ -30,7 +28,6 @@ const onSignIn = event => {
 }
 const onSignOut = event => {
   event.preventDefault()
-  console.log('it works!')
 
   api.signOut()
     .then(ui.onSignOutSuccess)
@@ -40,7 +37,6 @@ const onSignOut = event => {
 }
 const onChangePassword = event => {
   event.preventDefault()
-  console.log('it works!')
   const formData = getFormFields(event.target)
 
   api.changePassword(formData)
@@ -49,6 +45,52 @@ const onChangePassword = event => {
 
   $('form').trigger('reset')
 }
+
+// game api events
+const onGameIndex = event => {
+  event.preventDefault()
+  console.log('it works!')
+  const token = store.user
+
+  api.gameIndex(token)
+    .then(ui.onGameIndexSuccess)
+    .catch(ui.onGameIndexFailure)
+
+  $('form').trigger('reset')
+}
+const onGameCreate = event => {
+  event.preventDefault()
+  console.log('Game Created!')
+  const token = store.user
+
+  api.gameCreate(token)
+    .then(ui.onGameCreateSuccess)
+    .catch(ui.onGameCreateFailure)
+
+  $('form').trigger('reset')
+}
+// const onGameShow = event => {
+//   event.preventDefault()
+//   console.log('Game Show Created')
+//   const token = store.user
+//
+//   api.gameShow(token)
+//     .then(ui.onGameShowSuccess)
+//     .catch(ui.onGameShowFailure)
+//
+//   $('form').trigger('reset')
+// }
+// const onGameUpdate = event => {
+//   event.preventDefault()
+//   console.log('Game Updated')
+//   const token = store.user
+//
+//   api.gameUpdate(token)
+//     .then(ui.onGameUpdateSuccess)
+//     .catch(ui.onGameUpdateFailure)
+//
+//   $('form').trigger('reset')
+// }
 // playerFunction defines the function that holsters my if statement for switching
 // - between x and o. It also holds the code that stores X or O in my game gameBoard array
 // playerFunctio also holds the if statement for determining which player has won or if it's a draw
@@ -162,30 +204,15 @@ const clearBoard = event => {
   $('#player-win-container').text('')
 }
 
-const onGameOver = event => {
-  event.preventDefault()
-  console.log('it works!')
-  const formData = getFormFields(event.target)
-
-  api.changePassword(formData)
-    .then(ui.onChangePasswordSuccess)
-    .catch(ui.onChangePasswordFailure)
-
-  $('form').trigger('reset')
-}
-// if gameBoard is
-// const gameOver = event => {
-//   if (store.gameBoard === ['X', 'X', 'X'] || ['O', 'O', 'O']) {
-//     console.log('Game is over')
-//   }
-// }
-
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
+  onGameIndex,
+  onGameCreate,
+  // onGameShow,
+  // onGameUpdate,
   playerFunction,
-  clearBoard,
-  onGameOver
+  clearBoard
 }

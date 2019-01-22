@@ -11,7 +11,10 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
-
+  $('#sign-in').on('submit', authEvents.onGameIndex)
+  $('#sign-in').on('submit', authEvents.onGameCreate)
+  // $('#sign-in').on('submit', authEvents.onGameShow)
+  // $('#sign-in').on('submit', authEvents.onGameUpdate)
   // this will help end my game after completion by connecting to the api
   // Game Events
   // links to JQuery code and playerOne function being described in events.js

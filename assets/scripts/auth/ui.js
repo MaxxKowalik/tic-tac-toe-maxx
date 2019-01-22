@@ -7,7 +7,7 @@ const onSignUpSuccess = (responseData) => {
   $('#log-user-message').text('Great Success! You have signed up!')
 }
 const onSignUpFailure = () => {
-  $('#log-user-message').text('Whoopsie Daisy! Username Taken, try again.')
+  $('#log-user-message').text('Username or Password taken, try again.')
 }
 const onSignInSuccess = (responseData) => {
   console.log(responseData)
@@ -24,25 +24,51 @@ const onSignOutSuccess = (responseData) => {
   store.user = null
 }
 const onSignOutFailure = (responseData) => {
-  $('#log-user-message').text('You failed to sign out, hehe.')
+  $('#log-user-message').text('You failed to sign out')
 }
 const onChangePasswordSuccess = (responseData) => {
   $('#log-user-message').text('Hoorah! Password Changed!')
 }
 const onChangePasswordFailure = (responseData) => {
-  $('#log-user-message').text('Password failed. No tic tac for you!')
+  $('#log-user-message').text('Failed to Change Password')
 }
-
-// not sure if I need to keep onGameOverFailure. Come back to this.
-// also need to come up with a better user message (if any at all)
-const onGameOverSuccess = (responseData) => {
-  $('#player-win-container').text('Game Over Success')
+// testing game api
+const onGameIndexSuccess = (responseData) => {
+  console.log(responseData)
+  $('#log-user-message').text('Game Index Success!')
+  store.user = responseData.user
   console.log('Store is:', store)
 }
-const onGameOverFailure = (responseData) => {
-  $('#player-win-container').text('Game Over Failure')
+const onGameIndexFailure = () => {
+  $('#log-user-message').text('Game Index Failure')
+}
+const onGameCreateSuccess = (responseData) => {
+  console.log(responseData)
+  $('#log-user-message').text('Game Create Success!')
+  store.user = responseData.user
   console.log('Store is:', store)
 }
+const onGameCreateFailure = () => {
+  $('#log-user-message').text('Game Create Failure')
+}
+// const onGameShowSuccess = (responseData) => {
+//   console.log(responseData)
+//   $('#log-user-message').text('Game Show Success!')
+//   store.user = responseData.user
+//   console.log('Store is:', store)
+// }
+// const onGameShowFailure = () => {
+//   $('#log-user-message').text('Game Show Failure')
+// }
+// const onGameUpdateSuccess = (responseData) => {
+//   console.log(responseData)
+//   $('#log-user-message').text('Game Update Success!')
+//   store.user = responseData.user
+//   console.log('Store is:', store)
+// }
+// const onGameUpdateFailure = () => {
+//   $('#log-user-message').text('Game Update Failure')
+// }
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -52,6 +78,12 @@ module.exports = {
   onSignOutFailure,
   onChangePasswordSuccess,
   onChangePasswordFailure,
-  onGameOverSuccess,
-  onGameOverFailure
+  onGameIndexSuccess,
+  onGameIndexFailure,
+  onGameCreateSuccess,
+  onGameCreateFailure
+  // onGameShowSuccess,
+  // onGameShowFailure,
+  // onGameUpdateSuccess,
+  // onGameUpdateFailure
 }

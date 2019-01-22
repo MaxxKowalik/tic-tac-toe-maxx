@@ -37,7 +37,7 @@ const signOut = () => {
 }
 const gameIndex = (formData) => {
   return $.ajax({
-    url: config.apiUrl + `/games[?over=]`,
+    url: config.apiUrl + `/games`,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -55,36 +55,36 @@ const gameCreate = (formData) => {
     data: formData
   })
 }
-const gameShow = (formData) => {
-  return $.ajax({
-    url: config.apiUrl + `/games`,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: formData
-  })
-}
-const gameUpdate = (formData) => {
-  return $.ajax({
-    url: config.apiUrl + `/games`,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: formData
-  })
-}
-const gameUpdateStates = (formData) => {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: formData
-  })
-}
+// const gameShow = (formData) => {
+//   return $.ajax({
+//     url: config.apiUrl + `/games:id`,
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: formData
+//   })
+// }
+// const gameUpdate = (formData) => {
+//   return $.ajax({
+//     url: config.apiUrl + `/games:id`,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: formData
+//   })
+// }
+// const gameUpdateStates = (formData) => {
+//   return $.ajax({
+//     url: config.apiUrl + '/games',
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: formData
+//   })
+// }
 
 module.exports = {
   signUp,
@@ -92,8 +92,8 @@ module.exports = {
   signOut,
   changePassword,
   gameIndex,
-  gameCreate,
-  gameShow,
-  gameUpdate,
-  gameUpdateStates
+  gameCreate
+  // gameShow,
+  // gameUpdate,
+  // gameUpdateStates
 }
